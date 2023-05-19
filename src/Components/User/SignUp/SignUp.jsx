@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { FaEye, FaEyeSlash, FaGoogle } from 'react-icons/fa';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { useNavigate } from 'react-router-dom';
 
@@ -7,7 +7,7 @@ const SignUp = () => {
     const [passEye, setPassEye] = useState(true);
     const [confirmPassEye, setConfirmPassEye] = useState(true);
     const [error, setError] = useState()
-    const { createUser, updateUserProfile, googleSignUp } = useContext(AuthContext)
+    const { createUser, updateUserProfile, googleSignUp, githubSignUp } = useContext(AuthContext)
     const navigate = useNavigate()
 
     const handlePassEyeToggle = () => {
@@ -48,8 +48,8 @@ const SignUp = () => {
                 const errorMassage = error.message;
                 setErrorSign(errorMassage)
             })
-
     }
+
 
     const googleSignUpHandler = () => {
         googleSignUp()
@@ -64,6 +64,18 @@ const SignUp = () => {
             })
     }
 
+    const githubSignUpHandler = () => {
+        githubSignUp()
+            .then(result => {
+                const user = result.user
+                console.log(user)
+                navigate('/')
+            })
+            .catch(error => {
+                const errorMessage = error.message;
+                setError(errorMessage)
+            })
+    }
     return (
         <div className="hero min-h-screen bg-base-200">
 
@@ -76,7 +88,7 @@ const SignUp = () => {
                                     <img className='w-10 me-4' src="https://i.ibb.co/hCmDtQt/images-removebg-preview.png" alt="" /> Sign Up With Google
                                 </button>
                             </div>
-                            <div className=' flex justify-center items-center mb-4'>
+                            <div onClick={githubSignUpHandler} className=' flex justify-center items-center mb-4'>
                                 <button className='btn btn-outline hover:bg-slate-500'>
                                     <img className='w-10 me-4' src="https://i.ibb.co/hCmDtQt/images-removebg-preview.png" alt="" /> Sign Up With Github
                                 </button>
