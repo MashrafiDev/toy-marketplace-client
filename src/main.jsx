@@ -11,6 +11,7 @@ import ErrorPage from "./Components/ErrorPage/ErrorPage";
 import AuthProvider from "./Components/AuthProvider/AuthProvider";
 import SignUp from "./Components/User/SignUp/SignUp";
 import Login from "./Components/User/Login/Login";
+import HomeMain from "./Components/HomeMain/HomeMain";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
     element: <Home></Home>,
     errorElement: <ErrorPage></ErrorPage>,
     children: [
+      {
+        path: '/',
+        element: <HomeMain></HomeMain>
+      },
       {
         path: '/signUp',
         element: <SignUp></SignUp>

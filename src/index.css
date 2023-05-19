@@ -2,6 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.mw9 {
-    max-width: 90%;
+#root {
+    font-family: 'Poppins', sans-serif;
 }

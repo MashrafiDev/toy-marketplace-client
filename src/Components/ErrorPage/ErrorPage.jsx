@@ -5,8 +5,8 @@ const ErrorPage = () => {
     const history = useNavigate();
     return (
         <div className='text-center mt-7'>
-            <Link className='btn me-5' to="/">Back to Home</Link>
-            <Link className='go grad btn' onClick={() => history(-1)}> Go Back</Link >
+            <Link className=' me-5' to="/">Back to Home</Link>
+            <Link className='' onClick={() => history(-1)}> Go Back</Link >
             <img className='mx-auto' src="https://i.ibb.co/b5mwnFb/1-z-E2qn-VTJehut7-B8-P2a-Mn3-A.gif" alt="" />
         </div >
     );

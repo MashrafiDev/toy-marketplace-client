@@ -1,12 +1,12 @@
 import React, { useContext, useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import { Link, useLocation } from 'react-router-dom';
 
 const Login = () => {
     const [passEye, setPassEye] = useState(true);
     const [error, setError] = useState()
     const { logInUser, googleSignIn, githubSignIn } = useContext(AuthContext)
-
     const handlePassEyeToggle = () => {
         setPassEye(!passEye);
     };
@@ -101,6 +101,7 @@ const Login = () => {
                             <input className='btn btn-primary' type="submit" value="Login" />
                             <span>{error}</span>
                         </div>
+                        <p>Toy Thread New? <Link to="/signUp">Create An Account</Link></p>
                     </form>
                 </div>
             </div>

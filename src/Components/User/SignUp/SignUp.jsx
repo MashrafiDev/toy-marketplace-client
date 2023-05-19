@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
     const [passEye, setPassEye] = useState(true);
@@ -153,6 +153,7 @@ const SignUp = () => {
                             <input className='btn btn-primary' type="submit" value="Sign Up" />
                             <span>{error}</span>
                         </div>
+                        <p>Already Account? <Link to="/login">Login</Link></p>
                     </form>
                 </div>
             </div>
