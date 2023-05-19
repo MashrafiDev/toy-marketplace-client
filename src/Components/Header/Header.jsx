@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
-import img1 from '../../img/My project.png'
-import img2 from '../../img/My project (1).png'
+import img from '../../img/My project (1).png'
+import ActiveLink from '../ActiveLink/ActiveLink';
 
 const Header = () => {
     const { logOut, user } = useContext(AuthContext);
@@ -28,16 +28,16 @@ const Header = () => {
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                            <li><Link to="/">Home</Link></li>
-                            <li><Link to="/all-toys">All Toys</Link></li>
-                            <li><Link to="/add-toys">Add Toys</Link></li>
-                            <li><Link to="/my-toys">My Toys</Link></li>
-                            <li><Link to="/about">About</Link></li>
+                            <li><ActiveLink to="/">Home</ActiveLink></li>
+                            <li><ActiveLink to="/all-toys">All Toys</ActiveLink></li>
+                            <li><ActiveLink to="/add-toys">Add Toys</ActiveLink></li>
+                            <li><ActiveLink to="/my-toys">My Toys</ActiveLink></li>
+                            <li><ActiveLink to="/about">About</ActiveLink></li>
                         </ul>
                     </div>
 
                     <div className='flex'>
-                        <img className='w-10 me-2' src={img2} alt="" />
+                        <img className='w-10 me-2' src={img} alt="" />
                         <button>
                             <div>
                                 <Link to="/">
