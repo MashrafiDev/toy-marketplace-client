@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { FaEye, FaEyeSlash, FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { useNavigate } from 'react-router-dom';
 
@@ -7,7 +7,7 @@ const SignUp = () => {
     const [passEye, setPassEye] = useState(true);
     const [confirmPassEye, setConfirmPassEye] = useState(true);
     const [error, setError] = useState()
-    const { createUser, updateUserProfile } = useContext(AuthContext)
+    const { createUser, updateUserProfile, googleSignUp } = useContext(AuthContext)
     const navigate = useNavigate()
 
     const handlePassEyeToggle = () => {
@@ -51,13 +51,43 @@ const SignUp = () => {
 
     }
 
-
+    const googleSignUpHandler = () => {
+        googleSignUp()
+            .then(result => {
+                const user = result.user
+                console.log(user)
+                navigate('/')
+            })
+            .catch(error => {
+                const errorMessage = error.message;
+                setError(errorMessage)
+            })
+    }
 
     return (
         <div className="hero min-h-screen bg-base-200">
+
             <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                 <div className="card-body ">
                     <form onSubmit={signUpHandler}>
+                        <div className="flex flex-col w-full border-opacity-50">
+                            <div onClick={googleSignUpHandler} className=' flex justify-center items-center mb-4'>
+                                <button className='btn btn-outline hover:bg-slate-500'>
+                                    <img className='w-10 me-4' src="https://i.ibb.co/hCmDtQt/images-removebg-preview.png" alt="" /> Sign Up With Google
+                                </button>
+                            </div>
+                            <div className=' flex justify-center items-center mb-4'>
+                                <button className='btn btn-outline hover:bg-slate-500'>
+                                    <img className='w-10 me-4' src="https://i.ibb.co/hCmDtQt/images-removebg-preview.png" alt="" /> Sign Up With Github
+                                </button>
+                            </div>
+                            <div className=' flex justify-center items-center mb-4'>
+                                <button className='btn btn-outline hover:bg-slate-500'>
+                                    <img className='w-10 me-4' src="https://i.ibb.co/hCmDtQt/images-removebg-preview.png" alt="" /> Sign Up With Facebook
+                                </button>
+                            </div>
+                            <div className="divider">OR</div>
+                        </div>
                         <h3 className="text-3xl text-center font-bold">Please Register</h3>
                         <div className="form-control">
                             <label className="label">
@@ -83,7 +113,7 @@ const SignUp = () => {
                                 required
                             />
                             <div onClick={handlePassEyeToggle} className="absolute left-72 top-14">
-                                {passEye ? <FaEye /> : <FaEyeSlash />}
+                                {passEye ? <FaEyeSlash /> : <FaEye />}
                             </div>
                         </div>
                         <div className="form-control sticky">
@@ -98,7 +128,7 @@ const SignUp = () => {
                                 required
                             />
                             <div onClick={handleConfirmPassEyeToggle} className="absolute left-72 top-14">
-                                {confirmPassEye ? <FaEye /> : <FaEyeSlash />}
+                                {confirmPassEye ? <FaEyeSlash /> : <FaEye />}
                             </div>
                         </div>
                         <div className="form-control">
