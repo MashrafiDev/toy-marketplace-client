@@ -31,7 +31,7 @@ const Header = () => {
                             <li><ActiveLink to="/all-toys">All Toys</ActiveLink></li>
                             <li><ActiveLink to="/add-toys">Add Toys</ActiveLink></li>
                             <li><ActiveLink to="/my-toys">My Toys</ActiveLink></li>
-                            <li><ActiveLink to="/about">About</ActiveLink></li>
+                            <li><ActiveLink to="/blog">Blog</ActiveLink></li>
                         </ul>
                     </div>
 
@@ -52,7 +52,7 @@ const Header = () => {
                         <li><Link to="/all-toys">All Toys</Link></li>
                         <li><Link to="/add-toys">Add Toys</Link></li>
                         <li><Link to="/my-toys">My Toys</Link></li>
-                        <li><Link to="/about">About</Link></li>
+                        <li><Link to="/blog">Blog</Link></li>
                     </ul>
                 </div>
                 <div className="navbar-end">

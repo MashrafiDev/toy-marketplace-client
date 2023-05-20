@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
-import { data } from 'autoprefixer';
 import MyData from '../MyData/MyData';
 
 const CurrentUserData = () => {
@@ -35,20 +34,11 @@ const CurrentUserData = () => {
                             currentUD.map(mToy => <MyData
                                 key={mToy._id}
                                 mToy={mToy}
+                                dataU={currentUD}
+                                setData={setCurrentUD}
                             ></MyData>)
                         }
                     </tbody>
-                    <tfoot>
-                        <tr>
-                            <th></th>
-                            <th>Name</th>
-                            <th>Job</th>
-                            <th>company</th>
-                            <th>location</th>
-                            <th>Last Login</th>
-                            <th>Favorite Color</th>
-                        </tr>
-                    </tfoot>
                 </table>
             </div>
         </div>
