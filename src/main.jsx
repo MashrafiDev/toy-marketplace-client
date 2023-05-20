@@ -14,6 +14,7 @@ import HomeMain from "./Components/HomeMain/HomeMain";
 import AllToys from "./Components/AllToys/AllToys";
 import AddToys from "./Components/AddToys/AddToys";
 import CurrentUserData from "./Components/CurrentUserData/CurrentUserData";
+import PrivateRoutes from "./Components/PrivateRoutes/PrivateRoutes";
 
 const router = createBrowserRouter([
   {
@@ -32,11 +33,11 @@ const router = createBrowserRouter([
       },
       {
         path: '/add-toys',
-        element: <AddToys></AddToys>
+        element: <PrivateRoutes><AddToys></AddToys></PrivateRoutes>
       },
       {
         path: '/my-toys',
-        element: <CurrentUserData></CurrentUserData>
+        element: <PrivateRoutes><CurrentUserData></CurrentUserData></PrivateRoutes>
       },
       {
         path: '/signUp',

@@ -1,12 +1,11 @@
 import React, { useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import img from '../../img/My project (1).png'
 import ActiveLink from '../ActiveLink/ActiveLink';
 
 const Header = () => {
     const { logOut, user } = useContext(AuthContext);
-    const navigate = useNavigate();
 
     const logOutHandler = () => {
         logOut()

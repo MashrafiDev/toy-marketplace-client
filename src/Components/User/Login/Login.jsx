@@ -1,11 +1,14 @@
 import React, { useContext, useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const [passEye, setPassEye] = useState(true);
     const [error, setError] = useState()
+    const navigate = useNavigate()
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/'
     const { logInUser, googleSignIn, githubSignIn } = useContext(AuthContext)
     const handlePassEyeToggle = () => {
         setPassEye(!passEye);
@@ -22,6 +25,7 @@ const Login = () => {
                 const user = logIn.user
                 console.log(user)
                 event.target.reset()
+                navigate(from, { replace: true })
             })
             .catch((error) => {
                 const errorMassage = error.message
@@ -34,6 +38,7 @@ const Login = () => {
         googleSignIn()
             .then(result => {
                 console.log(result.user)
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 setError(error.message)
@@ -44,6 +49,7 @@ const Login = () => {
         githubSignIn()
             .then(result => {
                 console.log(result.user)
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 setError(error.message)
