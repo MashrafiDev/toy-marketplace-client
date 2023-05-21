@@ -43,7 +43,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/viewDetails/:id',
-        element: <ViewDetails></ViewDetails>,
+        element: <PrivateRoutes><ViewDetails></ViewDetails></PrivateRoutes>,
         loader: ({ params }) => fetch(`http://localhost:3000/viewDetails/${params.id}`)
       },
       {

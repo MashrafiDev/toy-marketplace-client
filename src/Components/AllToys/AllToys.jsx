@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Toys from './Toys';
 
 const AllToys = () => {
-    const allToy = useLoaderData()
+    const allToy = useLoaderData();
+    const [toys, setToys] = useState([]);
+
+    useState(() => {
+        if (allToy?.length > 20) {
+            const result = allToy.slice(0, 20);
+            setToys(result);
+        } else {
+            setToys(allToy);
+        }
+    }, [allToy]);
+
     return (
         <div className=''>
             <table className="table table-zebra w-[90%] mx-auto">
@@ -17,12 +28,12 @@ const AllToys = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {
-                        allToy.map(toy => <Toys
+                    {toys.map(toy => (
+                        <Toys
                             key={toy._id}
                             toy={toy}
-                        ></Toys>)
-                    }
+                        />
+                    ))}
                 </tbody>
             </table>
         </div>
