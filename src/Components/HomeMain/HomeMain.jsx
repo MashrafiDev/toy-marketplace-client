@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import TabsData from '../TabsData/TabsData';
+import PhotoGellary from '../PhotoGellary/PhotoGellary';
 
 
 const HomeMain = () => {
@@ -28,6 +29,8 @@ const HomeMain = () => {
                     ></TabsData>)
                 }
             </div>
+            <h3 className='text-center text-purple-600 mt-4 text-4xl'>Toy Gallery</h3>
+            <PhotoGellary></PhotoGellary>
         </div >
     );
 };

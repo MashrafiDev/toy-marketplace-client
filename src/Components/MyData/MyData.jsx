@@ -69,7 +69,11 @@ const MyData = ({ mToy, dataU, setData }) => {
             .then((data) => {
                 console.log(data);
                 if (data.modifiedCount > 0) {
-                    alert('updated');
+                    Swal.fire({
+                        title: 'Success',
+                        text: 'Successfully Toy Updated',
+                        confirmButtonText: 'Cool'
+                    })
                     setModalOpen(false);
                 }
             });
@@ -81,7 +85,7 @@ const MyData = ({ mToy, dataU, setData }) => {
                 <img className="w-10" src={toyPhoto} alt="" />
             </th>
             <td>{toyName}</td>
-            <td>{toyPrice}$</td>
+            <td>${toyPrice}</td>
             <td>{toyRating}</td>
             <td>{AvailableQuantity}</td>
             <td>{details}...</td>

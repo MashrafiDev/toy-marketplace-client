@@ -5,12 +5,13 @@ const Toys = ({ toy }) => {
     console.log(toy)
     const {
         AvailableQuantity,
-        toyName,
         toyCategory,
         toyPrice,
         _id,
+        toyPhoto,
         sellerName
     } = toy;
+
     return (
         <tr>
             <td>
@@ -26,7 +27,7 @@ const Toys = ({ toy }) => {
                 {AvailableQuantity}
             </td>
             <td>
-                <Link className='btn' >View Details</Link>
+                <Link to={`/viewDetails/${_id}`} className='btn' >View Details</Link>
             </td>
         </tr>
     );
