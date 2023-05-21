@@ -11,7 +11,7 @@ const CurrentUserData = () => {
     const [desData, setDesData] = useState([])
     useTitle("PB | My Toys")
 
-    const url = `http://localhost:3000/currentUD?sellerEmail=${user.email}`
+    const url = `https://assaignment-11-backend-server.vercel.app/currentUD?sellerEmail=${user.email}`
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
@@ -20,7 +20,7 @@ const CurrentUserData = () => {
             })
     }, [])
 
-    const url1 = `http://localhost:3000/currentUD?sellerEmail=${user.email}`
+    const url1 = `https://assaignment-11-backend-server.vercel.app/currentUD?sellerEmail=${user.email}`
     useEffect(() => {
         fetch(url1)
             .then(res => res.json())
@@ -29,7 +29,7 @@ const CurrentUserData = () => {
             })
     }, [])
 
-    const url2 = `http://localhost:3000/ascendingToys?sellerEmail=${user.email}`
+    const url2 = `https://assaignment-11-backend-server.vercel.app/ascendingToys?sellerEmail=${user.email}`
     useEffect(() => {
         fetch(url2)
             .then(res => res.json())
@@ -37,7 +37,7 @@ const CurrentUserData = () => {
                 setAsData(data)
             })
     }, [])
-    const url3 = `http://localhost:3000/descendingToys?sellerEmail=${user.email}`
+    const url3 = `https://assaignment-11-backend-server.vercel.app/descendingToys?sellerEmail=${user.email}`
     useEffect(() => {
         fetch(url3)
             .then(res => res.json())

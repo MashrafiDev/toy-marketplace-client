@@ -10,7 +10,7 @@ const HomeMain = () => {
     const [tabs, setTabs] = useState([])
     useTitle("PB | Home")
     useEffect(() => {
-        fetch('http://localhost:3000/tabs')
+        fetch('https://assaignment-11-backend-server.vercel.app/tabs')
             .then(res => res.json())
             .then(data => setTabs(data))
     }, [])

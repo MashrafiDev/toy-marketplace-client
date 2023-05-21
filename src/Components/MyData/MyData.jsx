@@ -29,7 +29,7 @@ const MyData = ({ mToy, dataU, setData }) => {
             confirmButtonText: 'Yes, delete it!',
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/toy/${_id}`, {
+                fetch(`https://assaignment-11-backend-server.vercel.app/toy/${_id}`, {
                     method: 'DELETE',
                 })
                     .then((res) => res.json())
@@ -60,7 +60,7 @@ const MyData = ({ mToy, dataU, setData }) => {
 
         const updatedToy = { uPrice, uQuantity, uDescription };
 
-        fetch(`http://localhost:3000/toy/${_id}`, {
+        fetch(`https://assaignment-11-backend-server.vercel.app/toy/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',

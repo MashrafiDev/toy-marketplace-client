@@ -31,7 +31,7 @@ const router = createBrowserRouter([
       {
         path: '/all-toys',
         element: <AllToys></AllToys>,
-        loader: () => fetch('http://localhost:3000/allToy')
+        loader: () => fetch('https://assaignment-11-backend-server.vercel.app/allToy')
       },
       {
         path: '/add-toys',
@@ -44,7 +44,7 @@ const router = createBrowserRouter([
       {
         path: '/viewDetails/:id',
         element: <PrivateRoutes><ViewDetails></ViewDetails></PrivateRoutes>,
-        loader: ({ params }) => fetch(`http://localhost:3000/viewDetails/${params.id}`)
+        loader: ({ params }) => fetch(`https://assaignment-11-backend-server.vercel.app/viewDetails/${params.id}`)
       },
       {
         path: '/blog',

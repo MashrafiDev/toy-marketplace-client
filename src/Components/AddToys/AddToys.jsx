@@ -19,7 +19,7 @@ const AddToys = () => {
         const toyCategory = form.toyCategory.value
         const addToy = { toyName, toyPrice, toyPhoto, sellerName, sellerEmail, toyRating, AvailableQuantity, toyDescription, toyCategory }
 
-        fetch('http://localhost:3000/addToy', {
+        fetch('https://assaignment-11-backend-server.vercel.app/addToy', {
             method: 'POST',
             headers: {
                 "content-type": 'application/json'
