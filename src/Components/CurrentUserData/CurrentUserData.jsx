@@ -57,13 +57,16 @@ const CurrentUserData = () => {
 
     return (
         <div>
-            <div className="dropdown flex justify-center mb-4">
-                <label tabIndex={0} className="btn m-1">Click</label>
-                <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                    <li onClick={handlerDefault}><a>Default</a></li>
-                    <li onClick={handlerAs}><a>Ascending</a></li>
-                    <li onClick={handlerDes}><a>Descending Price</a></li>
-                </ul>
+            <div className='flex'>
+                <h3 className='flex-1 text-purple-400 mb-2 text-center font-bold text-4xl'>All My Toys</h3>
+                <div className="dropdown flex justify-end me-20 mb-4">
+                    <label tabIndex={0} className="btn m-1">Click</label>
+                    <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                        <li onClick={handlerDefault}><a>Default</a></li>
+                        <li onClick={handlerAs}><a>Ascending</a></li>
+                        <li onClick={handlerDes}><a>Descending Price</a></li>
+                    </ul>
+                </div>
             </div>
             <div className=" w-[90%] mx-auto mb-5 border rounded-2xl">
                 <table className="table table-compact w-full">
@@ -75,7 +78,7 @@ const CurrentUserData = () => {
                             <th>Rating</th>
                             <th>Quantity</th>
                             <th>Description</th>
-                            <th>Update And Delete</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>

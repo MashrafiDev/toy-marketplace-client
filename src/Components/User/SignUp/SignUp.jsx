@@ -3,6 +3,8 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
 import useTitle from '../../hooks/useTitle';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SignUp = () => {
     const [passEye, setPassEye] = useState(true);
@@ -46,6 +48,9 @@ const SignUp = () => {
             .then((result) => {
                 updateUserProfile(name, photoURL)
                 const user = result.user
+                toast.success('SignUp Success', {
+                    position: toast.POSITION.TOP_RIGHT
+                })
                 console.log(user)
                 event.target.reset()
                 navigate('/')
@@ -61,6 +66,9 @@ const SignUp = () => {
         googleSignUp()
             .then(result => {
                 const user = result.user
+                toast.success('SignUp Success', {
+                    position: toast.POSITION.TOP_RIGHT
+                })
                 console.log(user)
                 navigate('/')
             })
@@ -74,6 +82,9 @@ const SignUp = () => {
         githubSignUp()
             .then(result => {
                 const user = result.user
+                toast.success('SignUp Success', {
+                    position: toast.POSITION.TOP_RIGHT
+                })
                 console.log(user)
                 navigate('/')
             })
@@ -163,6 +174,7 @@ const SignUp = () => {
                     </form>
                 </div>
             </div>
+            <ToastContainer />
         </div>
     );
 };

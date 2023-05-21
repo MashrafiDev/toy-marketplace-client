@@ -3,6 +3,9 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useTitle from '../../hooks/useTitle';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Login = () => {
     const [passEye, setPassEye] = useState(true);
@@ -26,6 +29,9 @@ const Login = () => {
         logInUser(email, password)
             .then((logIn) => {
                 const user = logIn.user
+                toast.success('Login Success', {
+                    position: toast.POSITION.TOP_RIGHT
+                })
                 console.log(user)
                 event.target.reset()
                 navigate(from, { replace: true })
@@ -41,6 +47,9 @@ const Login = () => {
         googleSignIn()
             .then(result => {
                 console.log(result.user)
+                toast.success('Login Success', {
+                    position: toast.POSITION.TOP_RIGHT
+                })
                 navigate(from, { replace: true })
             })
             .catch(error => {
@@ -52,6 +61,9 @@ const Login = () => {
         githubSignIn()
             .then(result => {
                 console.log(result.user)
+                toast.success('Login Success', {
+                    position: toast.POSITION.TOP_RIGHT
+                })
                 navigate(from, { replace: true })
             })
             .catch(error => {
@@ -112,6 +124,7 @@ const Login = () => {
                     </form>
                 </div>
             </div>
+            <ToastContainer />
         </div>
     );
 };

@@ -1,6 +1,8 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import useTitle from '../hooks/useTitle';
+import Rating from 'react-rating';
+import { FaRegStar, FaStar } from 'react-icons/fa';
 
 const ViewDetails = () => {
     const viewData = useLoaderData();
@@ -26,8 +28,15 @@ const ViewDetails = () => {
                 <p className="lg:ms-10 text-black">Seller Name: <span className='text-lg'>{sellerName}</span></p>
                 <p className="lg:ms-10 text-black">Seller Email: <span className='text-lg'>{sellerEmail}</span></p>
                 <p className="lg:ms-10 text-black">Toy Price: <span className='text-lg'>{toyPrice}</span></p>
-                <p className="lg:ms-10 text-black">Available Quantity: <span className='text-lg'>{AvailableQuantity}</span></p>
-                <p className="lg:ms-10 text-black"> Rating: {toyRating}</p>
+                <p className="lg:ms-10 text-black">Available Quantity: <span className='text-lg'>{AvailableQuantity} psc</span></p>
+                <p className="lg:ms-10 text-black"> Rating: {toyRating} <Rating placeholderRating={toyRating}
+                    emptySymbol={<FaRegStar></FaRegStar>}
+                    placeholderSymbol={<FaStar></FaStar>}
+                    fullSymbol={<FaStar></FaStar>}
+                    readonly={true}
+                ></Rating>
+
+                </p>
                 <p className="lg:ms-10 text-black">Description: <span className='text-lg'>{toyDescription}</span></p>
 
             </div>

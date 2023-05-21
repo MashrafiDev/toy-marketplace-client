@@ -21,16 +21,16 @@ const Toys = ({ toy }) => {
                 <h3>{toyName}</h3>
             </td>
             <td>
-                <h3>{toyCategory}</h3>
-            </td>
-            <td>
                 {toyPrice}
             </td>
             <td>
-                {AvailableQuantity}
+                {AvailableQuantity} psc
             </td>
             <td>
-                <Link to={`/viewDetails/${_id}`} className='btn' >View Details</Link>
+                <h3>{toyCategory}</h3>
+            </td>
+            <td>
+                <Link to={`/viewDetails/${_id}`} className='bg-gradient-to-r from-purple-800 to-purple-400 rounded-[50px] px-4 py-2 text-white' >View Details</Link>
             </td>
         </tr>
     );

@@ -39,7 +39,7 @@ const Footer = () => {
                     <span className="font-semibold text-lg">Address</span>
                     <a className="link link-hover subpixel-antialiased font-medium text-black"> Level-4, 34, Awal Centre, Banani, Dhaka</a>
                     <a className="link link-hover subpixel-antialiased font-medium text-black"> Support: example@gmail.com</a>
-                    <a className="link link-hover subpixel-antialiased font-medium text-black">Helpline: 013********</a>
+                    <a className="link link-hover subpixel-antialiased font-medium text-black">Helpline: 013XXXXXXXX</a>
                     <a className="link link-hover subpixel-antialiased font-medium text-black">(Available : Sat - Thu, 10:00 AM to 7:00 PM)</a>
                 </div>
             </footer>

@@ -1,5 +1,7 @@
 import React from 'react';
 import useTitle from '../hooks/useTitle';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AddToys = () => {
     useTitle("Add Toy")
@@ -28,7 +30,9 @@ const AddToys = () => {
             .then(data => {
                 console.log(data)
                 if (data.insertedId) {
-                    alert('toy added successfully')
+                    toast.success('toy added successfully', {
+                        position: toast.POSITION.TOP_CENTER
+                    })
                     form.reset()
                 }
             })
@@ -165,6 +169,7 @@ const AddToys = () => {
                     </div>
                 </div>
             </div>
+            <ToastContainer />
         </div>
     );
 };

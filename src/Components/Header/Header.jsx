@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import ActiveLink from '../ActiveLink/ActiveLink';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Header = () => {
     const { logOut, user } = useContext(AuthContext);
@@ -10,10 +12,12 @@ const Header = () => {
         logOut()
             .then(result => {
                 console.log(result.user);
+                toast.success('LogOut Success', {
+                    position: toast.POSITION.TOP_CENTER
+                })
             })
             .catch(error => {
                 const errorMessage = error.message;
-                alert(errorMessage);
             });
     };
 
@@ -58,21 +62,22 @@ const Header = () => {
                         )
                     ) : null}
                     {user ? (
-                        <Link onClick={logOutHandler} className="btn btn-outline btn-success" to="/">
+                        <Link onClick={logOutHandler} className="bg-gradient-to-r from-purple-800 to-purple-400 rounded-[50px] px-4 py-2 text-white" to="/">
                             Log Out
                         </Link>
                     ) : (
                         <>
-                            <Link className="btn btn-outline btn-success me-4" to="/signUp">
+                            <Link className="bg-gradient-to-r from-purple-800 to-purple-400 rounded-[50px] px-4 py-2 text-white me-4" to="/signUp">
                                 SignUp
                             </Link>
-                            <Link className="btn btn-outline btn-success" to="/login">
+                            <Link className="bg-gradient-to-r from-purple-800 to-purple-400 rounded-[50px] px-4 py-2 text-white" to="/login">
                                 Login
                             </Link>
                         </>
                     )}
                 </div>
             </div>
+            <ToastContainer />
         </div>
     );
 };

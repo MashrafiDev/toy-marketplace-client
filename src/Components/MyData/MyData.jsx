@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
+import { FaRegStar, FaStar } from 'react-icons/fa';
+import Rating from 'react-rating';
 
 const MyData = ({ mToy, dataU, setData }) => {
     console.log(mToy);
@@ -86,11 +88,17 @@ const MyData = ({ mToy, dataU, setData }) => {
             </th>
             <td>{toyName}</td>
             <td>${toyPrice}</td>
-            <td>{toyRating}</td>
+            <td>{toyRating} <Rating placeholderRating={toyRating}
+                emptySymbol={<FaRegStar></FaRegStar>}
+                placeholderSymbol={<FaStar></FaStar>}
+                fullSymbol={<FaStar></FaStar>}
+                readonly={true}
+            >
+            </Rating></td>
             <td>{AvailableQuantity}</td>
             <td>{details}...</td>
             <td>
-                <label htmlFor={_id} className="btn me-6">
+                <label htmlFor={_id} className="bg-gradient-to-r from-purple-800 to-purple-400 rounded-[50px] px-4 py-2 text-white me-6">
                     Update
                 </label>
                 <input
@@ -129,7 +137,7 @@ const MyData = ({ mToy, dataU, setData }) => {
                         <input className="w-[30%] btn mx-auto mt-3" type="submit" value="Update" />
                     </form>
                 </div>
-                <button onClick={() => handleDelete(_id)} className="btn">
+                <button onClick={() => handleDelete(_id)} className="bg-gradient-to-r from-purple-800 to-purple-400 rounded-[50px] px-4 py-2 text-white">
                     Delete
                 </button>
             </td>

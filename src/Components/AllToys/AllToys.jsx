@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Toys from './Toys';
 import useTitle from '../hooks/useTitle';
@@ -6,6 +6,7 @@ import useTitle from '../hooks/useTitle';
 const AllToys = () => {
     const allToy = useLoaderData();
     const [toys, setToys] = useState([]);
+    const [searchText, setSearchText] = useState("")
     useTitle("PB | All Toy")
 
     useState(() => {
@@ -17,13 +18,27 @@ const AllToys = () => {
         }
     }, [allToy]);
 
+
+    const handleSearch = () => {
+        fetch(`http://localhost:3000/toySearch/${searchText}`)
+            .then(res => res.json())
+            .then(data => {
+                setToys(data)
+            })
+    }
+
     return (
         <div className='my-6'>
-            <h3 className='font-semibold text-4xl my-3 text-purple-400 text-center'>All Toy</h3>
+            <h3 className='font-semibold text-4xl my-3 text-purple-400 text-center'>All Toys</h3>
             <div className="form-control mb-5">
                 <div className="input-group justify-center">
-                    <input type="text" placeholder="Search…" className="input input-bordered" />
-                    <button className="btn btn-square">
+                    <input
+                        onChange={(e) => setSearchText(e.target.value)}
+                        type="text"
+                        placeholder="Search…"
+                        className="input input-bordered"
+                    />
+                    <button onClick={handleSearch} className="btn btn-square">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
                     </button>
                 </div>
@@ -36,7 +51,7 @@ const AllToys = () => {
                         <th>Price</th>
                         <th>Available Quantity</th>
                         <th>Sub Category</th>
-                        <th>View</th>
+                        <th>Details</th>
                     </tr>
                 </thead>
                 <tbody>

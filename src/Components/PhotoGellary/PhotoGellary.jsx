@@ -2,7 +2,7 @@ import React from 'react';
 
 const PhotoGellary = () => {
     return (
-        <div className='grid grid-cols-1 mx-14 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-12 mt-3'>
+        <div className='grid grid-cols-1 px-14 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-12 py-8 mt-3 bg-purple-100'>
             <div className='card w-96 bg-purple-200 mx-auto shadow-lg p-3'>
                 <img className='rounded-xl ' src="
 https://i.ibb.co/FgVgWjP/desktop-wallpaper-love-doll-pic-cute-toy.jpg" alt="" />
