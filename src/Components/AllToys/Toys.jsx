@@ -8,7 +8,7 @@ const Toys = ({ toy }) => {
         toyCategory,
         toyPrice,
         _id,
-        toyPhoto,
+        toyName,
         sellerName
     } = toy;
 
@@ -16,6 +16,9 @@ const Toys = ({ toy }) => {
         <tr>
             <td>
                 <h3>{sellerName}</h3>
+            </td>
+            <td>
+                <h3>{toyName}</h3>
             </td>
             <td>
                 <h3>{toyCategory}</h3>

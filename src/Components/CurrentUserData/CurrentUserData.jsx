@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import MyData from '../MyData/MyData';
+import useTitle from '../hooks/useTitle';
 
 const CurrentUserData = () => {
     const { user } = useContext(AuthContext);
@@ -8,6 +9,7 @@ const CurrentUserData = () => {
     const [defaultData, setDefaultData] = useState([])
     const [asData, setAsData] = useState([])
     const [desData, setDesData] = useState([])
+    useTitle("PB | My Toys")
 
     const url = `http://localhost:3000/currentUD?sellerEmail=${user.email}`
     useEffect(() => {
@@ -55,7 +57,7 @@ const CurrentUserData = () => {
 
     return (
         <div>
-            <div className="dropdown">
+            <div className="dropdown flex justify-center mb-4">
                 <label tabIndex={0} className="btn m-1">Click</label>
                 <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
                     <li onClick={handlerDefault}><a>Default</a></li>
@@ -63,7 +65,7 @@ const CurrentUserData = () => {
                     <li onClick={handlerDes}><a>Descending Price</a></li>
                 </ul>
             </div>
-            <div className=" w-[90%] mx-auto">
+            <div className=" w-[90%] mx-auto mb-5 border rounded-2xl">
                 <table className="table table-compact w-full">
                     <thead>
                         <tr>

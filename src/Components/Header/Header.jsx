@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
-import img from '../../img/My project (1).png'
 import ActiveLink from '../ActiveLink/ActiveLink';
 
 const Header = () => {
@@ -19,7 +18,7 @@ const Header = () => {
     };
 
     return (
-        <div className='w-4/5 mx-auto pt-2 bg-gradient-to-r from-purple-400 to-purple-800 mt-7 mb-5 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]'>
+        <div className='w-4/5 mx-auto pt-2 bg-gradient-to-r from-purple-400 to-purple-800 mt-7 mb-5 shadow-[0_35px_80px_-15px_rgba(0,0,0,0.3)]'>
             <div className="navbar bg-base-1 bg-white">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -27,32 +26,27 @@ const Header = () => {
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                            <li><ActiveLink to="/">Home</ActiveLink></li>
-                            <li><ActiveLink to="/all-toys">All Toys</ActiveLink></li>
-                            <li><ActiveLink to="/add-toys">Add Toys</ActiveLink></li>
-                            <li><ActiveLink to="/my-toys">My Toys</ActiveLink></li>
-                            <li><ActiveLink to="/blog">Blog</ActiveLink></li>
+                            <li className='mx-4 subpixel-antialiased font-medium text-black'><ActiveLink to="/">Home</ActiveLink></li>
+                            <li className='mx-4 subpixel-antialiased font-medium text-black'><ActiveLink to="/all-toys">All Toys</ActiveLink></li>
+                            <li className='mx-4 subpixel-antialiased font-medium text-black'><ActiveLink to="/add-toys">Add Toys</ActiveLink></li>
+                            <li className='mx-4 subpixel-antialiased font-medium text-black'><ActiveLink to="/my-toys">My Toys</ActiveLink></li>
+                            <li className='mx-4 subpixel-antialiased font-medium text-black'><ActiveLink to="/blog">Blog</ActiveLink></li>
                         </ul>
                     </div>
 
-                    <div className='flex'>
-                        <img className='w-10 me-2' src={img} alt="" />
-                        <button>
-                            <div>
-                                <Link to="/">
-                                    <p>Toy</p>
-                                    <p>Thread</p>
-                                </Link></div>
-                        </button>
-                    </div>
+
+                    <Link to="/"><img className=' me-2' src="https://i.ibb.co/CBWQ7L8/cropped-Group-74-2x.png" alt="" /></Link>
+
+
+
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1">
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="/all-toys">All Toys</Link></li>
-                        <li><Link to="/add-toys">Add Toys</Link></li>
-                        <li><Link to="/my-toys">My Toys</Link></li>
-                        <li><Link to="/blog">Blog</Link></li>
+                    <ul className="menu-horizontal px-1">
+                        <li className='mx-4 subpixel-antialiased font-medium text-black'><ActiveLink to="/">Home</ActiveLink></li>
+                        <li className='mx-4 subpixel-antialiased font-medium text-black'><ActiveLink to="/all-toys">All Toys</ActiveLink></li>
+                        <li className='mx-4 subpixel-antialiased font-medium text-black'><ActiveLink to="/add-toys">Add Toys</ActiveLink></li>
+                        <li className='mx-4 subpixel-antialiased font-medium text-black'><ActiveLink to="/my-toys">My Toys</ActiveLink></li>
+                        <li className='mx-4 subpixel-antialiased font-medium text-black'><ActiveLink to="/blog">Blog</ActiveLink></li>
                     </ul>
                 </div>
                 <div className="navbar-end">

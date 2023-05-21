@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import TabsData from '../TabsData/TabsData';
 import PhotoGellary from '../PhotoGellary/PhotoGellary';
+import useTitle from '../hooks/useTitle';
 
 
 const HomeMain = () => {
     const [tabs, setTabs] = useState([])
+    useTitle("PB | Home")
     useEffect(() => {
         fetch('http://localhost:3000/tabs')
             .then(res => res.json())
@@ -13,7 +15,7 @@ const HomeMain = () => {
     return (
         <div>
             <div className='flex items-center mx-auto lg:justify-around'>
-                <div className='ms-36'>
+                <div className='ms-36' data-aos="fade-down" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
                     <p className=' text-red-400 text-3xl'>Hot & Trendy</p>
                     <p className='text-black text-7xl '>Baby Kids Toys</p>
                     <p className='text-neutral-600 text-3xl mt-3'>Get Upto 30% Off Your First Order</p>
@@ -31,6 +33,7 @@ const HomeMain = () => {
             </div>
             <h3 className='text-center text-purple-600 mt-4 text-4xl'>Toy Gallery</h3>
             <PhotoGellary></PhotoGellary>
+
         </div >
     );
 };

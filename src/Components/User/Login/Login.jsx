@@ -2,10 +2,13 @@ import React, { useContext, useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import useTitle from '../../hooks/useTitle';
 
 const Login = () => {
     const [passEye, setPassEye] = useState(true);
-    const [error, setError] = useState()
+    const [error, setError] = useState('')
+    const [viaError, setViaError] = useState('')
+    useTitle("Pb | LogIn")
     const navigate = useNavigate()
     const location = useLocation()
     const from = location.state?.from?.pathname || '/'
@@ -41,7 +44,7 @@ const Login = () => {
                 navigate(from, { replace: true })
             })
             .catch(error => {
-                setError(error.message)
+                setViaError(error.message)
             })
     }
 
@@ -52,8 +55,7 @@ const Login = () => {
                 navigate(from, { replace: true })
             })
             .catch(error => {
-                setError(error.message)
-                confirm.length(error.message)
+                setViaError(error.message)
             })
     }
 
@@ -64,21 +66,19 @@ const Login = () => {
                 <div className="card-body ">
                     <form onSubmit={loginHandler}>
                         <div className="flex flex-col w-full border-opacity-50">
-                            <div onClick={googleSignInHandler} className=' flex justify-center items-center mb-4'>
-                                <button className='btn btn-outline hover:bg-slate-500'>
-                                    <img className='w-10 me-4' src="https://i.ibb.co/hCmDtQt/images-removebg-preview.png" alt="" /> Login With Google
-                                </button>
+                            <div className='flex'>
+                                <div onClick={googleSignInHandler} className=' flex-1 flex justify-center items-center mb-4'>
+                                    <button className='bg-white btn  hover:bg-white'>
+                                        <img className='w-10 me-4' src="https://i.ibb.co/hCmDtQt/images-removebg-preview.png" alt="" /> <h4 className='text-black font-bold'>Google</h4>
+                                    </button>
+                                </div>
+                                <div onClick={githubSignInHandler} className=' flex justify-center items-center mb-4'>
+                                    <button className='bg-white btn  hover:bg-white'>
+                                        <img className='w-10 me-4' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiZCYmiGYsRcLuenmPaLZRJs2vQMkTK8b4XeoOLpYtGQ&" alt="" /><h4 className='text-black font-bold'>Github</h4>
+                                    </button>
+                                </div>
                             </div>
-                            <div onClick={githubSignInHandler} className=' flex justify-center items-center mb-4'>
-                                <button className='btn btn-outline hover:bg-slate-500'>
-                                    <img className='w-10 me-4' src="https://i.ibb.co/hCmDtQt/images-removebg-preview.png" alt="" /> Login With Github
-                                </button>
-                            </div>
-                            <div className=' flex justify-center items-center mb-4'>
-                                <button className='btn btn-outline hover:bg-slate-500'>
-                                    <img className='w-10 me-4' src="https://i.ibb.co/hCmDtQt/images-removebg-preview.png" alt="" /> Login With Facebook
-                                </button>
-                            </div>
+                            <span className='font-semibold text-red-600 ms-3'>{viaError}</span>
                             <div className="divider">OR</div>
                         </div>
                         <h3 className="text-3xl text-center font-bold">Please Login</h3>
@@ -102,12 +102,13 @@ const Login = () => {
                             <div onClick={handlePassEyeToggle} className="absolute left-72 top-14">
                                 {passEye ? <FaEyeSlash /> : <FaEye />}
                             </div>
+                            <span className='font-semibold text-red-600 mt-3'>{error}</span>
                         </div>
                         <div className="form-control mt-6">
                             <input className='btn btn-primary' type="submit" value="Login" />
-                            <span>{error}</span>
+
                         </div>
-                        <p>Toy Thread New? <Link to="/signUp">Create An Account</Link></p>
+                        <p className='mt-3'>Toy Thread New? <Link className='link' to="/signUp">Create An Account</Link></p>
                     </form>
                 </div>
             </div>
